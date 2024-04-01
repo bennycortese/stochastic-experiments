@@ -30,5 +30,15 @@ for i in range(board_size):
 # The last square is an absorbing state
 P[board_size - 1, board_size - 1] = 1
 
+def probability_after_n_rolls(P, n):
+    # Raise the transition matrix to the power of n
+    P_n = np.linalg.matrix_power(P, n)
+    
+    # Return the first row, which corresponds to probabilities starting from square 0
+    return P_n[0, :]
+
+
 # Show a small sample of the matrix to check correctness
-print(P[:10, :10])
+n = 3  # Number of rolls
+probabilities = probability_after_n_rolls(P, n)
+print(probabilities)
