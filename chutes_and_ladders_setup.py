@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Define the size of the board and create an empty transition matrix
 board_size = 100
@@ -33,12 +34,20 @@ P[board_size - 1, board_size - 1] = 1
 def probability_after_n_rolls(P, n):
     # Raise the transition matrix to the power of n
     P_n = np.linalg.matrix_power(P, n)
-    
     # Return the first row, which corresponds to probabilities starting from square 0
     return P_n[0, :]
 
-
-# Show a small sample of the matrix to check correctness
 n = 3  # Number of rolls
 probabilities = probability_after_n_rolls(P, n)
-print(probabilities)
+
+# Visualization
+squares = np.arange(1, board_size + 1)
+plt.figure(figsize=(20, 5))
+plt.bar(squares, probabilities, color='skyblue')
+plt.title('Probability of Landing on Each Square After 3 Rolls')
+plt.xlabel('Board Squares')
+plt.ylabel('Probability')
+plt.xticks(np.arange(1, board_size + 1, 1), rotation=90)  # Show all square numbers
+plt.grid(axis='y')
+plt.tight_layout()
+plt.show()
