@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 board_size = 100
 P = np.zeros((board_size, board_size))
 
+# taking a chill day, also I want to simulate a smaller board
+
+L = np.zeros((board_size//10, board_size//10))
+
 # Define a simplified version of chutes (snakes) and ladders
 chutes_and_ladders = {
     1: 38, 4: 14, 9: 31, 16: 6, 21: 42, 36: 44,
