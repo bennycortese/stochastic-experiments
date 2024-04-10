@@ -48,6 +48,17 @@ def expectation(λ):
 def variance(λ):
     return 1 / λ**2
 
+def integer_part(λ, n):
+    return math.exp(- λ * (n + 1))
+
+def uniform(x): # for P(e^λ*x <= x)
+    if x <= 0:
+        return 0
+    elif x >= 1:
+        return 1
+    else:
+        return x
+
 print(exponential_distribution(1, 1))
 
 print(cdf(-1, 1))
