@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 def generate_poisson_process(rate, max_time):
     arrival_times = []
@@ -30,3 +31,23 @@ if average_interarrival_time:
     print("Average interarrival time:", average_interarrival_time)
 else:
     print("Insufficient data to calculate an average interarrival time.")
+
+
+def exponential_distribution(λ, x):
+    return λ * math.exp(-λ * x)
+
+def cdf(λ, x):
+    if x >= 0:
+        return 1 - math.exp(λ * x)
+    else:
+        return 0
+    
+def expectation(λ):
+    return 1 / λ
+
+def variance(λ):
+    return 1 / λ**2
+
+print(exponential_distribution(1, 1))
+
+print(cdf(-1, 1))
