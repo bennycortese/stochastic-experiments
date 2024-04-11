@@ -59,6 +59,9 @@ def uniform(x): # for P(e^λ*x <= x)
     else:
         return x
 
+def pdf_with_t(t, λ, k):
+    return math.exp(-t*λ) * (λ * t) ** k / factorial(k)
+
 print(exponential_distribution(1, 1))
 
 print(cdf(-1, 1))
