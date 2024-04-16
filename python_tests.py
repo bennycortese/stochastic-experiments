@@ -29,5 +29,11 @@ class TestStringMethods(unittest.TestCase):
     def test_uniform(self):
         self.assertEqual(uniform(2), 1)
 
+    def test_uniform(self):
+        self.assertEqual(uniform(3), 1)
+
+    def test_exponential_variation(self):
+        self.assertEqual(variance(3), 1/8)
+
 if __name__ == '__main__':
     unittest.main()
