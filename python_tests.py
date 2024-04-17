@@ -9,6 +9,9 @@ class TestStringMethods(unittest.TestCase):
     def brownian_test(self)
         self.assertEqual('foo'.upper(), 'FOO')
 
+    def brownian_expecation_test(self)
+        self.assertEqual('foo'.upper(), 'FOO')
+
     def test_isupper(self):
         self.assertTrue('FOO'.isupper())
         self.assertFalse('Foo'.isupper())
