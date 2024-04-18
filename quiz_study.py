@@ -68,7 +68,7 @@ def uniform(x): # for P(e^λ*x <= x)
 def pdf_with_t(t, λ, k):
     return math.exp(-t*λ) * (λ * t) ** k / factorial(k)
 
-def brownian_motion(t, λ):
+def brownian_motion_with_t(t, λ):
     return np.random.exponential(λ * t)
 
 def brownian(x0, n, dt, delta, out=None):
