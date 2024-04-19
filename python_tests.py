@@ -1,5 +1,5 @@
 import unittest
-from quiz_study import exponential_distribution, expectation, variance, uniform
+from quiz_study import exponential_distribution, expectation, variance, uniform, brownian
 
 class TestStringMethods(unittest.TestCase):
 
@@ -7,7 +7,7 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual('foo'.upper(), 'FOO')
 
     def brownian_test(self):
-        self.assertEqual('foo'.upper(), 'FOO')
+        self.assertEqual(brownian(1, 1, 1, 1), 0.36787944117144233)
 
     def brownian_expecation_test(self):
         self.assertEqual('foo'.upper(), 'FOO')
@@ -39,7 +39,7 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(uniform(3), 1)
 
     def test_exponential_variation(self):
-        self.assertEqual(variance(3), 1/8)
+        self.assertEqual(variance(3), 1/9)
 
 if __name__ == '__main__':
     unittest.main()
