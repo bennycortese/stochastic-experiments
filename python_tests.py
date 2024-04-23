@@ -1,4 +1,5 @@
 import unittest
+import math
 from quiz_study import exponential_distribution, expectation, variance, uniform, brownian
 
 class TestStringMethods(unittest.TestCase):
@@ -25,6 +26,10 @@ class TestStringMethods(unittest.TestCase):
 
     def test_expectation(self):
         self.assertEqual(exponential_distribution(1, 1), 0.36787944117144233)
+    
+
+    def test_expectation_e(self):
+        self.assertEqual(exponential_distribution(math.exp(1), 1), 0.1793740787340172)
 
     def test_exponential_expectation(self):
         self.assertEqual(expectation(2), 1/2)
