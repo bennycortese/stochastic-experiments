@@ -24,7 +24,7 @@ class TestStringMethods(unittest.TestCase):
         with self.assertRaises(TypeError):
             s.split(2)
 
-    def test_expectation(self):
+    def test_expectation_distribution_1(self):
         self.assertEqual(exponential_distribution(1, 1), 0.36787944117144233)
     
 
