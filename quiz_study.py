@@ -3,6 +3,8 @@ import math
 from math import sqrt
 from scipy.stats import norm
 
+def simulate_brownian():
+    # function here for n iterations and matplot
 
 def generate_poisson_process(rate, max_time):
     arrival_times = []
