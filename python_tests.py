@@ -4,6 +4,10 @@ from quiz_study import exponential_distribution, expectation, variance, uniform,
 
 class TestStringMethods(unittest.TestCase):
 
+
+    def apple_as_geometric_brownian():
+        # find some way to model apple as a geometric brownian motion
+    
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
 
