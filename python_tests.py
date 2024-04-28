@@ -7,6 +7,9 @@ class TestStringMethods(unittest.TestCase):
 
     def apple_as_geometric_brownian():
         # find some way to model apple as a geometric brownian motion
+
+    def model_some_poisson_process():
+        # find a model like average phone time rings or something
     
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
