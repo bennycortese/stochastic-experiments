@@ -4,6 +4,7 @@ from math import sqrt
 from scipy.stats import norm
 
 def simulate_brownian():
+    pass
     # function here for n iterations and matplot
 
 def generate_poisson_process(rate, max_time):
@@ -68,7 +69,7 @@ def uniform(x): # for P(e^λ*x <= x)
     #for n in simulate, random process
 
 def pdf_with_t(t, λ, k):
-    return math.exp(-t*λ) * (λ * t) ** k / factorial(k)
+    return math.exp(-t*λ) * (λ * t) ** k / math.factorial(k)
 
 def brownian_motion_with_t(t, λ):
     return np.random.exponential(λ * t)
