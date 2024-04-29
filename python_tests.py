@@ -1,15 +1,18 @@
 import unittest
 import math
-from quiz_study import exponential_distribution, expectation, variance, uniform, brownian
+from quiz_study import exponential_distribution, expectation, variance, uniform, brownian, simulate_1d_gbm
 
 class TestStringMethods(unittest.TestCase):
 
 
     def apple_as_geometric_brownian():
+        simulate_1d_gbm(apple_nsteps=1000, apple_t=1, apple_mu=0.0001, apple_sigma=0.02, apple_start=1)
         # find some way to model apple as a geometric brownian motion
+        pass
 
     def model_some_poisson_process():
         # find a model like average phone time rings or something
+        pass
     
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
