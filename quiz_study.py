@@ -140,3 +140,24 @@ def brownian(x0, n, dt, delta, out=None):
 print(exponential_distribution(1, 1))
 
 print(cdf(-1, 1))
+
+
+def simulate_1d_gbm(nsteps=1000, t=1, mu=0.0001, sigma=0.02, start=1):
+    """
+    Simulates the 1D geometric Brownian motion process.
+
+    Parameters:
+        nsteps (int): The number of steps in the simulation. Default is 1000.
+        t (float): The time horizon for the simulation. Default is 1.
+        mu (float): The drift parameter of the geometric Brownian motion process. Default is 0.0001.
+        sigma (float): The volatility parameter of the geometric Brownian motion process. Default is 0.02.
+        start (float): The initial value of the process. Default is 1.
+
+    Returns:
+        x (list): A list of time points corresponding to the simulation steps.
+        y (ndarray): An array of values representing the simulated geometric Brownian motion process.
+    """
+    steps = [ (mu - (sigma**2)/2) + np.random.randn()*sigma for i in range(nsteps) ]
+    y = start*np.exp(np.cumsum(steps))
+    x = [ t*i for i in range(nsteps) ]
+    return x, y
