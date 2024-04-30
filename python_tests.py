@@ -10,6 +10,11 @@ class TestStringMethods(unittest.TestCase):
         # find some way to model apple as a geometric brownian motion
         pass
 
+    def msft_as_geometric_brownian():
+        simulate_1d_gbm(msft_nsteps=1000, msft_t=1, msft_mu=0.0001, msft_sigma=0.02, msft_start=1)
+        # find some way to model apple as a geometric brownian motion
+        pass
+
     def model_some_poisson_process():
         # find a model like average phone time rings or something
         pass
