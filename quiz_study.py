@@ -2,6 +2,7 @@ import numpy as np
 import math
 from math import sqrt
 from scipy.stats import norm
+import scipy.stats as stats
 
 def simulate_brownian():
     pass
@@ -142,6 +143,16 @@ print(exponential_distribution(1, 1))
 
 print(cdf(-1, 1))
 
+def brownian_motion_probability():
+    t = 1  # Example time
+    mean = 0
+    variance = t
+    std_dev = variance**0.5
+
+    # Calculate the probability that B(t) >= 0
+    probability = 1 - stats.norm.cdf(0, loc=mean, scale=std_dev)
+    print("The probability that B(t) >= 0 is:", probability)
+        
 
 def simulate_1d_gbm(nsteps=1000, t=1, mu=0.0001, sigma=0.02, start=1):
     """
