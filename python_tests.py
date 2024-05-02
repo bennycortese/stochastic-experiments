@@ -15,6 +15,9 @@ class TestStringMethods(unittest.TestCase):
         # find some way to model apple as a geometric brownian motion
         pass
 
+    def pull_recent_yahoo_data():
+        pass
+
     def model_some_poisson_process():
         # find a model like average phone time rings or something
         pass
