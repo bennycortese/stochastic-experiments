@@ -8,6 +8,9 @@ def simulate_brownian():
     pass
     # function here for n iterations and matplot
 
+def new_distribution():
+    pass
+
 def generate_poisson_process(rate, max_time):
     arrival_times = []
     current_time = 0
