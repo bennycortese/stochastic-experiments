@@ -6,6 +6,7 @@ import numpy as np
 
 class TestStringMethods(unittest.TestCase):
 
+    # help in game, godot
 
     def apple_as_geometric_brownian():
         simulate_1d_gbm(apple_nsteps=1000, apple_t=1, apple_mu=0.0001, apple_sigma=0.02, apple_start=1)
