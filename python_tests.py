@@ -6,6 +6,11 @@ import numpy as np
 
 class TestStringMethods(unittest.TestCase):
 
+
+    def visualize_prediction(data_x, data_y)
+        pass
+        # matplotlib this
+    
     # help in game, godot
 
     def apple_as_geometric_brownian():
