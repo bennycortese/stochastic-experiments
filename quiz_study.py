@@ -3,6 +3,8 @@ import math
 from math import sqrt
 from scipy.stats import norm
 import scipy.stats as stats
+import yfinance as yf
+import matplotlib.pyplot as plt
 
 def simulate_brownian():
     pass
@@ -176,3 +178,78 @@ def simulate_1d_gbm(nsteps=1000, t=1, mu=0.0001, sigma=0.02, start=1):
     y = start*np.exp(np.cumsum(steps))
     x = [ t*i for i in range(nsteps) ]
     return x, y
+
+def visualize_prediction(data_x, data_y):
+        plt.figure(figsize=(10, 5))  # Set the figure size
+        plt.plot(data_x, data_y, marker='o', linestyle='-', color='b')  # Plot data points
+        plt.title('Visualization of Predictions')  # Set title
+        plt.xlabel('X-axis')  # Label x-axis
+        plt.ylabel('Y-axis')  # Label y-axis
+        plt.grid(True)  # Enable grid
+        plt.show()  # Display the plot
+    
+    # help in game, godot
+
+def apple_as_geometric_brownian():
+        # Fetch Apple stock data
+        apple = yf.Ticker("AAPL")
+        
+        # Get the current closing price to use as the start value
+        current_price = apple.history(period="1d")['Close'].iloc[-1]
+        
+        # Define parameters for the simulation
+        nsteps = 1000
+        t = 1  # Simulate over one year
+        mu = 0.0001  # Assume a daily return rate
+        sigma = 0.02  # Stock volatility
+        
+        # Time increment
+        dt = t / nsteps
+        
+        # Simulate the stock price path
+        price_path = [current_price]
+        for _ in range(1, nsteps):
+            previous_price = price_path[-1]
+            shock = np.random.normal(loc=mu * dt, scale=sigma * np.sqrt(dt))
+            price = previous_price * np.exp(shock)
+            price_path.append(price)
+
+        return price_path
+
+    
+def msft_as_geometric_brownian():
+        # Fetch Microsoft stock data
+        msft = yf.Ticker("MSFT")
+        
+        # Get the current closing price to use as the start value
+        current_price = msft.history(period="1d")['Close'].iloc[-1]
+        
+        # Define parameters for the simulation
+        nsteps = 1000
+        t = 1  # Simulate over one year
+        mu = 0.0001  # Assume a daily return rate
+        sigma = 0.02  # Stock volatility
+
+        # Time increment
+        dt = t / nsteps
+
+        # Simulate the stock price path
+        price_path = [current_price]
+        for _ in range(1, nsteps):
+            previous_price = price_path[-1]
+            shock = np.random.normal(loc=mu * dt, scale=sigma * np.sqrt(dt))
+            price = previous_price * np.exp(shock)
+            price_path.append(price)
+
+        return price_path
+
+def pull_recent_yahoo_data(stock_ticker):
+        #cur_data = retrieval(stock_ticker)
+        pass
+
+def model_some_poisson_process():
+        # find a model like average phone time rings or something
+        pass
+
+apple_prices = apple_as_geometric_brownian()
+visualize_prediction(range(len(apple_prices)), apple_prices)
