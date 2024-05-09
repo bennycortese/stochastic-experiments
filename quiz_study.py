@@ -13,6 +13,10 @@ def simulate_brownian():
 def new_distribution():
     pass
 
+def generate_many_paths_visualization(paths):
+    #generate the visual for many simulated paths from a given stock
+    pass
+
 def generate_poisson_process(rate, max_time):
     arrival_times = []
     current_time = 0
