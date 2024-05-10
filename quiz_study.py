@@ -250,6 +250,8 @@ def pull_recent_yahoo_data(stock_ticker):
 def model_some_poisson_process():
         # find a model like average phone time rings or something
         pass
+apple_prices = []
+for i in range(1000):
+    apple_prices.append(apple_as_geometric_brownian())
 
-apple_prices = apple_as_geometric_brownian()
 visualize_prediction(range(len(apple_prices)), apple_prices)
