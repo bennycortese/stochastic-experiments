@@ -183,16 +183,28 @@ def simulate_1d_gbm(nsteps=1000, t=1, mu=0.0001, sigma=0.02, start=1):
     x = [ t*i for i in range(nsteps) ]
     return x, y
 
-def visualize_prediction(data_x, data_y):
-        plt.figure(figsize=(10, 5))  # Set the figure size
-        plt.plot(data_x, data_y, marker='o', linestyle='-', color='b')  # Plot data points
-        plt.title('Visualization of Predictions')  # Set title
-        plt.xlabel('X-axis')  # Label x-axis
-        plt.ylabel('Y-axis')  # Label y-axis
-        plt.grid(True)  # Enable grid
-        plt.show()  # Display the plot
+def visualize_prediction(data_x, data_ys):
+    """
+    Visualizes multiple time series paths, each with a different color.
+
+    Parameters:
+        data_x (list): A list of x values common to all paths.
+        data_ys (list of lists): A list containing multiple lists of y values for each path.
+    """
+    plt.figure(figsize=(10, 5))
     
-    # help in game, godot
+    # Define a list of colors, can add more colors to extend the list
+    colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'orange', 'purple', 'brown']
+    
+    for i, data_y in enumerate(data_ys):
+        plt.plot(data_x, data_y, marker='o', linestyle='-', color=colors[i % len(colors)], label=f'Path {i+1}')
+    
+    plt.title('Visualization of Geometric Brownian Motion Paths')
+    plt.xlabel('Time Steps')
+    plt.ylabel('Stock Price')
+    plt.grid(True)
+    plt.legend()  # Show legends
+    plt.show()
 
 def apple_as_geometric_brownian(stock_ticker):
         # Fetch Apple stock data
@@ -254,15 +266,12 @@ def pull_recent_yahoo_data(stock_ticker):
 def model_some_poisson_process():
         # find a model like average phone time rings or something
         pass
-apple_prices = []
-for i in range(1000):
-    apple_prices.append(apple_as_geometric_brownian())
 
-<<<<<<< HEAD
-visualize_prediction(range(len(apple_prices)), apple_prices)
-=======
-apple_prices = []
-for i in range(1000):
-    apple_prices.append(apple_as_geometric_brownian())
-visualize_prediction(range(len(apple_prices)), apple_prices)
->>>>>>> 77efdcc783ea11d4514a76471070d319c606cc4b
+num_paths = 100
+paths = []
+x_values = range(1000)  # Assuming each path has 1000 time steps
+
+for _ in range(num_paths):
+    paths.append(apple_as_geometric_brownian("aapl"))  # Using a function to generate paths; replace as necessary
+
+visualize_prediction(x_values, paths)
