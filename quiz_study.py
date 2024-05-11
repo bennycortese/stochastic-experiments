@@ -194,9 +194,9 @@ def visualize_prediction(data_x, data_y):
     
     # help in game, godot
 
-def apple_as_geometric_brownian():
+def apple_as_geometric_brownian(stock_ticker):
         # Fetch Apple stock data
-        apple = yf.Ticker("AAPL")
+        apple = yf.Ticker("AAPL") # make this a parameter 
         
         # Get the current closing price to use as the start value
         current_price = apple.history(period="1d")['Close'].iloc[-1]
