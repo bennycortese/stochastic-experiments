@@ -13,6 +13,10 @@ def simulate_brownian():
 def new_distribution():
     pass
 
+def generate_many_paths_visualization(paths):
+    #generate the visual for many simulated paths from a given stock
+    pass
+
 def generate_poisson_process(rate, max_time):
     arrival_times = []
     current_time = 0
@@ -190,9 +194,9 @@ def visualize_prediction(data_x, data_y):
     
     # help in game, godot
 
-def apple_as_geometric_brownian():
+def apple_as_geometric_brownian(stock_ticker):
         # Fetch Apple stock data
-        apple = yf.Ticker("AAPL")
+        apple = yf.Ticker("AAPL") # make this a parameter 
         
         # Get the current closing price to use as the start value
         current_price = apple.history(period="1d")['Close'].iloc[-1]
@@ -254,4 +258,11 @@ apple_prices = []
 for i in range(1000):
     apple_prices.append(apple_as_geometric_brownian())
 
+<<<<<<< HEAD
 visualize_prediction(range(len(apple_prices)), apple_prices)
+=======
+apple_prices = []
+for i in range(1000):
+    apple_prices.append(apple_as_geometric_brownian())
+visualize_prediction(range(len(apple_prices)), apple_prices)
+>>>>>>> 77efdcc783ea11d4514a76471070d319c606cc4b
