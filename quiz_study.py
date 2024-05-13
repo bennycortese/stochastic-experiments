@@ -197,7 +197,7 @@ def visualize_prediction(data_x, data_ys):
     colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'orange', 'purple', 'brown']
     
     for i, data_y in enumerate(data_ys):
-        plt.plot(data_x, data_y, marker='o', linestyle='-', color=colors[i % len(colors)], label=f'Path {i+1}')
+        plt.plot(data_x, data_y, marker='o', linestyle='-', color=colors[i % len(colors)])
     
     plt.title('Visualization of Geometric Brownian Motion Paths')
     plt.xlabel('Time Steps')
@@ -206,31 +206,53 @@ def visualize_prediction(data_x, data_ys):
     plt.legend()  # Show legends
     plt.show()
 
-def apple_as_geometric_brownian(stock_ticker):
-        # Fetch Apple stock data
-        apple = yf.Ticker("AAPL") # make this a parameter 
-        
-        # Get the current closing price to use as the start value
-        current_price = apple.history(period="1d")['Close'].iloc[-1]
-        
-        # Define parameters for the simulation
-        nsteps = 1000
-        t = 1  # Simulate over one year
-        mu = 0.0001  # Assume a daily return rate
-        sigma = 0.02  # Stock volatility
-        
-        # Time increment
-        dt = t / nsteps
-        
-        # Simulate the stock price path
-        price_path = [current_price]
-        for _ in range(1, nsteps):
-            previous_price = price_path[-1]
-            shock = np.random.normal(loc=mu * dt, scale=sigma * np.sqrt(dt))
-            price = previous_price * np.exp(shock)
-            price_path.append(price)
+def get_gbm_params(stock_ticker, period='1y', interval='1d'):
+    """
+    Fetches historical stock data and calculates the drift and volatility parameters for GBM.
 
-        return price_path
+    Parameters:
+        stock_ticker (str): The stock ticker symbol.
+        period (str): The period over which to fetch historical data.
+        interval (str): The data interval.
+
+    Returns:
+        mu (float): Estimated annual drift coefficient.
+        sigma (float): Estimated annual volatility.
+    """
+    # Fetch historical stock data
+    stock = yf.Ticker(stock_ticker)
+    data = stock.history(period=period, interval=interval)
+
+    # Calculate daily returns
+    returns = np.log(data['Close'] / data['Close'].shift(1))
+
+    # Drop NaN values
+    returns = returns.dropna()
+
+    # Calculate parameters
+    mu = returns.mean() * 252  # Annualize the mean
+    sigma = returns.std() * np.sqrt(252)  # Annualize the standard deviation
+
+    return mu, sigma
+
+def simulate_gbm(stock_ticker, nsteps=1000, t=1):
+    # Fetch the current price and calculate GBM parameters
+    stock = yf.Ticker(stock_ticker)
+    current_price = stock.history(period="1d")['Close'].iloc[-1]
+    mu, sigma = get_gbm_params(stock_ticker, period='1y', interval='1d')
+
+    # Time increment
+    dt = t / nsteps
+    
+    # Simulate the stock price path
+    price_path = [current_price]
+    for _ in range(1, nsteps):
+        previous_price = price_path[-1]
+        shock = np.random.normal(loc=(mu - 0.5 * sigma**2) * dt, scale=sigma * np.sqrt(dt))
+        price = previous_price * np.exp(shock)
+        price_path.append(price)
+
+    return price_path
 
     
 def msft_as_geometric_brownian():
@@ -272,6 +294,6 @@ paths = []
 x_values = range(1000)  # Assuming each path has 1000 time steps
 
 for _ in range(num_paths):
-    paths.append(apple_as_geometric_brownian("aapl"))  # Using a function to generate paths; replace as necessary
+    paths.append(simulate_gbm("NFLX"))  # Using a function to generate paths; replace as necessary
 
 visualize_prediction(x_values, paths)
