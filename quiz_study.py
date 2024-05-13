@@ -293,7 +293,15 @@ num_paths = 100
 paths = []
 x_values = range(1000)  # Assuming each path has 1000 time steps
 
+ticker = input("Enter stock ticker: ")
+
 for _ in range(num_paths):
-    paths.append(simulate_gbm("NFLX"))  # Using a function to generate paths; replace as necessary
+    paths.append(simulate_gbm(ticker))  # Using a function to generate paths; replace as necessary
+
+final_prices = [path[-1] for path in paths]
+stock = yf.Ticker(ticker)
+current_price = stock.history(period="1d")['Close'].iloc[-1]
+count_above_average = sum(1 for final_price in final_prices if final_price > current_price)
+print(count_above_average, " / ", num_paths)
 
 visualize_prediction(x_values, paths)
