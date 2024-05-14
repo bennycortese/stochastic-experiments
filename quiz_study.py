@@ -305,3 +305,7 @@ count_above_average = sum(1 for final_price in final_prices if final_price > cur
 print(count_above_average, " / ", num_paths)
 
 visualize_prediction(x_values, paths)
+
+def grab_most_volitile_stocks(num_stocks):
+    # pull from yf the num_stocks number of most volitile stocks from the last day, so we can simulate based on them
+    pass
