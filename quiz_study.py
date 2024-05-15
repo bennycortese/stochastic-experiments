@@ -6,6 +6,10 @@ import scipy.stats as stats
 import yfinance as yf
 import matplotlib.pyplot as plt
 
+def track_only_last_week():
+    pass 
+    # function only accounting for last week of data
+
 def simulate_brownian():
     pass
     # function here for n iterations and matplot
