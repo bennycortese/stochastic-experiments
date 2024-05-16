@@ -152,6 +152,10 @@ print(exponential_distribution(1, 1))
 
 print(cdf(-1, 1))
 
+def random_choice():
+    # Generate a random number from a normal distribution
+    pass
+
 def brownian_motion_probability():
     t = 1  # Example time
     mean = 0
