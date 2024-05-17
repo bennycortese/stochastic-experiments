@@ -17,6 +17,10 @@ def simulate_brownian():
 def new_distribution():
     pass
 
+def better_stock_visualization(stocks):
+    pass
+    # better stuff for visualization!
+
 def generate_many_paths_visualization(paths):
     #generate the visual for many simulated paths from a given stock
     pass
