@@ -6,7 +6,8 @@ import scipy.stats as stats
 import yfinance as yf
 import matplotlib.pyplot as plt
 
-def track_only_last_week():
+def track_only_last_x_days():
+    # this is goofy lol, should I do track last x days? ye
     pass 
     # function only accounting for last week of data
 
