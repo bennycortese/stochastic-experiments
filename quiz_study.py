@@ -6,6 +6,10 @@ import scipy.stats as stats
 import yfinance as yf
 import matplotlib.pyplot as plt
 
+def cool_stock_recommender_visualization():
+    # take array of arrays, visualize resulting conclusions, tabular view/picture
+    pass
+
 def track_only_last_x_days():
     # this is goofy lol, should I do track last x days? ye
     pass 
