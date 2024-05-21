@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 def cool_stock_recommender_visualization(stock_data):
     # take array of arrays, visualize resulting conclusions, tabular view/picture
     # for stock in stocks, pass to predict function and see results
+    # ok what should I use to visualize? matplotlib is kinda boring, can I make something cool
+    # hmmm, react/next.js maybe? 
     pass
 
 def track_only_last_x_days():
