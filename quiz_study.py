@@ -6,6 +6,10 @@ import scipy.stats as stats
 import yfinance as yf
 import matplotlib.pyplot as plt
 
+def sentiment_lurk():
+    # Need to work on scraping sentiment for stock prediction modeling
+    pass
+
 def cpp_functionality():
     # I just wanna code something in cpp dawg, X Macros are so cool and have such a big speedup
     # Actual banger design pattern, no need for a map and slowdown for lookup
