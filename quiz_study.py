@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 
 def sentiment_lurk():
     # Need to work on scraping sentiment for stock prediction modeling
+    # Could we also have a react interface here maybe?
+    # Raw html render? hmmm
     pass
 
 def cpp_functionality():
