@@ -6,6 +6,10 @@ import scipy.stats as stats
 import yfinance as yf
 import matplotlib.pyplot as plt
 
+def compose_random_walks():
+    # idk but it sounds cool
+    pass
+
 def sentiment_lurk():
     # Need to work on scraping sentiment for stock prediction modeling
     # Could we also have a react interface here maybe?
