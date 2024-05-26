@@ -6,8 +6,10 @@ import scipy.stats as stats
 import yfinance as yf
 import matplotlib.pyplot as plt
 
-def compose_random_walks():
-    # idk but it sounds cool
+def compose_random_walks(walks):
+    for walk in walks:
+        #aggregate data
+        pass
     pass
 
 def sentiment_lurk():
