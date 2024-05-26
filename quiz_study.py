@@ -33,9 +33,44 @@ def track_only_last_x_days():
     pass 
     # function only accounting for last week of data
 
-def simulate_brownian():
-    pass
-    # function here for n iterations and matplot
+def simulate_brownian(n_iterations, time_steps, delta):
+    """
+    Simulates Brownian motion for a specified number of iterations.
+
+    Parameters:
+        n_iterations (int): The number of iterations to simulate.
+        time_steps (int): The number of time steps per iteration.
+        delta (float): The "speed" parameter of the Brownian motion.
+
+    Returns:
+        np.ndarray: A 2D NumPy array containing the simulated Brownian motion.
+    """
+    # Initialize an array to store the Brownian motion paths
+    brownian_motion = np.zeros((n_iterations, time_steps + 1))
+
+    # Generate Brownian motion paths
+    for i in range(n_iterations):
+        brownian_motion[i, 1:] = np.cumsum(np.random.normal(0, np.sqrt(delta), time_steps))
+
+    return brownian_motion
+
+def visualize_brownian_motion(brownian_motion):
+    """
+    Visualizes Brownian motion paths.
+
+    Parameters:
+        brownian_motion (np.ndarray): A 2D NumPy array containing Brownian motion paths.
+    """
+    plt.figure(figsize=(10, 6))
+    for i in range(len(brownian_motion)):
+        plt.plot(brownian_motion[i], label=f'Path {i+1}')
+    plt.title('Simulation of Brownian Motion')
+    plt.xlabel('Time Steps')
+    plt.ylabel('Value')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
 
 def new_distribution():
     pass
