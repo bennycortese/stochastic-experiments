@@ -7,10 +7,10 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 
 def compose_random_walks(walks):
+    composed_walk = []
     for walk in walks:
-        #aggregate data
-        pass
-    pass
+        composed_walk.extend(walk)  # Aggregate data by concatenating walks
+    return composed_walk
 
 def sentiment_lurk():
     # Need to work on scraping sentiment for stock prediction modeling
