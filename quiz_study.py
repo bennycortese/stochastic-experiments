@@ -25,11 +25,27 @@ def cpp_functionality():
     pass
 
 def cool_stock_recommender_visualization(stock_data):
-    # take array of arrays, visualize resulting conclusions, tabular view/picture
-    # for stock in stocks, pass to predict function and see results
-    # ok what should I use to visualize? matplotlib is kinda boring, can I make something cool
-    # hmmm, react/next.js maybe? 
-    pass
+    # Generate predictions
+    predictions = predict(stock_data)
+    
+    # Convert stock_data to a DataFrame for easier manipulation
+    df = pd.DataFrame(stock_data).transpose()
+    df.columns = [f'Stock {i+1}' for i in range(len(stock_data))]
+    
+    # Create subplots
+    fig, axes = plt.subplots(nrows=len(stock_data), ncols=1, figsize=(10, len(stock_data) * 5))
+    fig.suptitle('Stock Data and Predictions', fontsize=16)
+
+    for i, (stock, ax) in enumerate(zip(df.columns, axes)):
+        ax.plot(df.index, df[stock], label=stock)
+        ax.axhline(predictions[i], color='r', linestyle='--', label=f'Predicted Avg: {predictions[i]:.2f}')
+        ax.set_title(stock)
+        ax.set_xlabel('Time')
+        ax.set_ylabel('Price')
+        ax.legend()
+    
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
+    plt.show()
 
 def track_only_last_x_days():
     # this is goofy lol, should I do track last x days? ye
