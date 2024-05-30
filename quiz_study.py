@@ -47,7 +47,7 @@ def cool_stock_recommender_visualization(stock_data):
     plt.tight_layout(rect=[0, 0, 1, 0.96])
     plt.show()
 
-def track_only_last_x_days():
+def track_only_last_x_days(x_days):
     # this is goofy lol, should I do track last x days? ye
     pass 
     # function only accounting for last week of data
