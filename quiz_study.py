@@ -87,16 +87,6 @@ def visualize_brownian_motion(brownian_motion):
     plt.xlabel('Time Steps')
     plt.ylabel('Value')
     plt.legend()
-    plt.grid(True)
-    plt.show()
-
-
-def new_distribution():
-    pass
-
-def better_stock_visualization(stocks):
-    pass
-    # better stuff for visualization!
 
 def generate_many_paths_visualization(paths):
     #generate the visual for many simulated paths from a given stock
