@@ -16,6 +16,7 @@ def sentiment_lurk():
     # Need to work on scraping sentiment for stock prediction modeling
     # Could we also have a react interface here maybe?
     # Raw html render? hmmm
+    # what do I do with this, should I scrape twitter
     # ok how would this work with just raw flask? look into
     pass
 
