@@ -23,6 +23,8 @@ def sentiment_lurk():
 def cpp_functionality():
     # I just wanna code something in cpp dawg, X Macros are so cool and have such a big speedup
     # Actual banger design pattern, no need for a map and slowdown for lookup
+    # Figure out what to do? 
+    # Plan this out better?
     pass
 
 def cool_stock_recommender_visualization(stock_data):
