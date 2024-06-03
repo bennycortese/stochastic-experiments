@@ -18,6 +18,7 @@ def sentiment_lurk():
     # Raw html render? hmmm
     # what do I do with this, should I scrape twitter
     # ok how would this work with just raw flask? look into
+    # probably reddit scrape honestly
     pass
 
 def cpp_functionality():
@@ -29,6 +30,7 @@ def cpp_functionality():
 
 def cool_stock_recommender_visualization(stock_data):
     # Generate predictions
+    # Thoughts on Figma Plugin which interops with this?
     predictions = predict(stock_data)
     
     # Convert stock_data to a DataFrame for easier manipulation
