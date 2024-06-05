@@ -90,12 +90,7 @@ def visualize_brownian_motion(brownian_motion):
         plt.plot(brownian_motion[i], label=f'Path {i+1}')
     plt.title('Simulation of Brownian Motion')
     plt.xlabel('Time Steps')
-    plt.ylabel('Value')
     plt.legend()
-
-def generate_many_paths_visualization(paths):
-    #generate the visual for many simulated paths from a given stock
-    pass
 
 def generate_poisson_process(rate, max_time):
     arrival_times = []
