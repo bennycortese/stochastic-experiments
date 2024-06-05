@@ -31,6 +31,7 @@ def cpp_functionality():
 def cool_stock_recommender_visualization(stock_data):
     # Generate predictions
     # Thoughts on Figma Plugin which interops with this?
+    # How would I build this as a Figma Plugin? Speech control Figma plugin or agent would go so hard
     predictions = predict(stock_data)
     
     # Convert stock_data to a DataFrame for easier manipulation
