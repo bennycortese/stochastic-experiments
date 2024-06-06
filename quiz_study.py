@@ -6,6 +6,11 @@ import scipy.stats as stats
 import yfinance as yf
 import matplotlib.pyplot as plt
 
+
+# Note to self, look into codepad api
+# Also this project is mostly dead
+# Unless I can think of some more
+# Interesting general function 
 def compose_random_walks(walks):
     composed_walk = []
     for walk in walks:
