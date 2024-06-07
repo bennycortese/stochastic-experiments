@@ -8,9 +8,6 @@ import matplotlib.pyplot as plt
 
 
 # Note to self, look into codepad api
-# Also this project is mostly dead
-# Unless I can think of some more
-# Interesting general function 
 def compose_random_walks(walks):
     composed_walk = []
     for walk in walks:
@@ -24,6 +21,7 @@ def sentiment_lurk():
     # what do I do with this, should I scrape twitter
     # ok how would this work with just raw flask? look into
     # probably reddit scrape honestly
+    # maybe twitter also
     pass
 
 def cpp_functionality():
