@@ -6,8 +6,7 @@ import scipy.stats as stats
 import yfinance as yf
 import matplotlib.pyplot as plt
 
-# Rock soup
-# Note to self, look into codepad api
+# Note to self, codepad sdk maybe?
 def compose_random_walks(walks):
     composed_walk = []
     for walk in walks:
