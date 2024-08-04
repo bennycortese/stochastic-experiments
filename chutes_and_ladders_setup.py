@@ -6,6 +6,7 @@ board_size = 100
 P = np.zeros((board_size, board_size))
 
 # taking a chill day, also I want to simulate a smaller board
+# More monte carlo!
 
 L = np.zeros((board_size//10, board_size//10))
 
